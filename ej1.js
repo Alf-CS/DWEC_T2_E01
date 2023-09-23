@@ -123,8 +123,47 @@ cuentaVecesCaracter("I love Javascript", 3);
  *   números válidos (NaN) muestra un error. Si son válidos, muestra por consola el nombre del producto y el precio final contando impuestos.
  * - Llama a la función varias veces, omitiendo parámetros, con todos los parámetros, y pasándo algún valor no numérico en el precio o impuesto.
  */
-
+ 
 console.log('--------------- APARTADO 4 -----------------');
+
+function calculaPrecioIVA(nombreProducto = "Producto genérico", precio = 100, impuesto = 21) {
+  
+	nombreProducto = String(nombreProducto); 	// Convertimos el nombre de producto a string, por si acaso.
+	precio = Number(precio); 					// Convertimos precio e impuesto a número.
+	impuesto = Number(impuesto);
+
+	// Verificamos si precio e impuesto son números válidos. Si no (NaN), mostramos ERROR.
+	if (isNaN(precio) || isNaN(impuesto)) {
+		console.error("Error: El precio y el impuesto deben ser números válidos.");
+		return;
+	}
+	if (impuesto<0){
+		console.error("Error: El impuesto aplicado no puede ser negativo.")
+		return;
+	}
+	if (impuesto==0){
+		console.warn("Aviso: Se está aplicando un impuesto del 0%");
+	}
+	
+	
+
+	// Calcula el precio final incluyendo impuestos
+	let precioFinal = precio *(1 + (impuesto / 100));
+
+	console.log("Producto: " + nombreProducto);	
+	console.log("PVP (con impuestos): "+ precioFinal);
+}
+
+calculaPrecioIVA("Batidora", 53); // Producto y precio, impuesto por defecto (IVA=21%)
+calculaPrecioIVA("Afeitadora", "76"); // Pasamos el precio como cadena - Comprobamos que pasa a número.
+calculaPrecioIVA("Curso de Javascript(libro)", 45, 10); // IVA del 10%  
+// console.warn("ARREGLAR PARA QUE SOLO SALGAN DOS DECIMALES");
+// FALTA AJUSTAR A DOS DECIMALES
+calculaPrecioIVA("Curso de HTML(libro)", 45, "%10"); // IVA no válido
+calculaPrecioIVA("Curso de HTML(libro)", 45, -3.5); // IVA no válido
+calculaPrecioIVA("Curso de CSS(libro)", 45, 0); // Si ponemos mal el IVA, como un 0%.
+calculaPrecioIVA(); // Se muestra lo que hace la función con un PRODUCTO GENERICO
+
 
 /**
  * Apartado 5
@@ -138,3 +177,19 @@ console.log('--------------- APARTADO 4 -----------------');
 
 console.log('--------------- APARTADO 5 -----------------');
 
+const contieneCadena = (texto, cadenaBuscada) => {
+  // Convierte ambas cadenas a minúsculas para hacer la búsqueda no sensible a mayúsculas
+  const textoMinusculas = texto.toLowerCase();
+  const cadenaBuscadaMinusculas = cadenaBuscada.toLowerCase();
+
+  // Comprueba si la cadena de búsqueda se encuentra dentro de la cadena completa
+  if (textoMinusculas.includes(cadenaBuscadaMinusculas)) {
+    console.log("La cadena: "+ cadenaBuscada + " está en: "+ texto);
+  } else {
+    console.log("La cadena: "+ cadenaBuscada + " NO se ha encontrado en: "+ texto);
+  }
+};
+
+// Ejemplo de uso:
+contieneCadena("Santiago de Compostela", "COMPO"); 	// la consola muestra: La cadena "COMPO" está en "Santiago de Compostela".
+contieneCadena("I Love Javascript", "HTML"); 		// la consola muestra: La cadena "HTML" NO se ha encontrado en "I Love Javascript".
