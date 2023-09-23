@@ -1,0 +1,9 @@
+En aquest exercici treballarem directament en la consola del navegador (F12), sense tocar res d'HTML encara. Es lliuraran tots dos arxius dins d'un únic arxiu zip i amb el format correcte de nom d'arxiu.
+
+Descarrega't el fitxer adjunt, que conté un HTML buit i un arxiu Javascript amb 5 apartats que has d'emplenar. En els comentaris està explicat el que has de fer. Torna a pujar la solució comprimida.
+
+_______________________________________________________________________________________________________________________________________
+
+En este ejercicio vamos a trabajar directamente en la consola del navegador (F12), sin tocar nada de HTML todavía. Se entregarán ambos archivos dentro de un único archivo zip y con el formato correcto de nombre de archivo.
+
+Descárgate el fichero adjunto, que contiene un HTML vacío y un archivo JavaScript con 5 apartados que tienes que rellenar. En los comentarios está explicado lo que debes hacer. Vuelve a subir la solución comprimida.
